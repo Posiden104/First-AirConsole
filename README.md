@@ -1,6 +1,3 @@
-# First-AirConsole
-
-
 AirConsole Co-op Tower Defense
 ======
 
