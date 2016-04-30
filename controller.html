@@ -2,19 +2,31 @@
 
 <head>
 
+    <body onload="init()">
+        <p id="parag">It's a 2 player game</p>
+    </body>
+
     <script type="text/javascript" scr="https://www.airconsole.com/api/airconsole-1.3.-.js"></script>
 
     <script type="text/javascript">
-        var air_console
+        var air_console;
 
-
+        document.getElementById("parag").innerHTML = "HELLO!!!";
 
 
         function init() {
             air_console = new AirConsole();
 
+            airconsole.onActivePlayersChange = function(player) {
+                var div = document.getElementById("parag");
+                if (player != undefined) {
+                    div.innerHTML = (["Left", "Right"][player]);
+                } else {
+                    div.innerHTML = "It's a 2 player game!";
+                }
+            };
+
         }
-        document.getElementById("parag").innerHTML = "Hello";
     </script>
 
     <style type="text/css">
@@ -37,11 +49,7 @@
         }
     </style>
 
-    <body onload="init()">
-        <p id="parag">It's a 2 player game</p>
-    </body>
+
 </head>
-
-
 
 </html>
