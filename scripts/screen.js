@@ -18,7 +18,14 @@ function setupConsole() {
     airconsole.onMessage = function(device_id, data) {
         var player = airconsole.convertDeviceIdToPlayerNumber(device_id);
         if (player != undefined && data.move !== undefined) {
-            appendTextToElement(document.getElementById("parag"), device_id + " says " + data.move);
+            //appendTextToElement(document.getElementById("parag"), device_id + " says " + data.move);
+            document.getElementById("parag").innerHTML = data.move;
+            var box = document.getElementById("shape");
+            if (data.move != 0) {
+                box.style.background = "#00FF00";
+            } else {
+                box.style.background = "#FF0000";
+            }
         }
     };
 
