@@ -3,13 +3,13 @@
   scr="https://www.airconsole.com/api/airconsole-1.3.-.js"></script>
 
 <script type="text/javascript">
-var air_console = new AirConsole();
+  var air_console = new AirConsole();
 
 // Send a message to the screen
-air_console.message(AirConsole.SCREEN, "How are you?");
+  air_console.message(AirConsole.SCREEN, "How are you?");
 
 // Listen for messages
-air_console.onMessage = function(from, data) {
+  air_console.onMessage = function(from, data) {
   //air_console.message(from, "Full of pixels!");
 
   // Show message on device screen
@@ -25,6 +25,7 @@ air_console.onMessage = function(from, data) {
   document.getElementById("parag").appendChild(t);           // Append <p> to <div> with id="myDIV"
 
 };
+
 </script>
 
 <style type="text/css">
