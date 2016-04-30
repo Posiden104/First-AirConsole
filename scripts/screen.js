@@ -22,7 +22,7 @@ function setupConsole() {
             document.getElementById("parag").innerHTML = data.move;
             var box = document.getElementById("shape");
             if (data.move != 0) {
-                box.style.background = "#00FF00";
+                box.style.background = "#0000FF";
             } else {
                 box.style.background = "#FF0000";
             }
