@@ -27,6 +27,12 @@ function setupConsole() {
         var player = airconsole.convertDeviceIdToPlayerNumber(device_id);
         if (player != undefined && data.move !== undefined) {
             document.getElementById("parag").innerHTML = data.move;
+            var box = document.getElementById("shape");
+            if (data.move != 0) {
+                box.style.background = "#00FF00";
+            } else {
+                box.style.background = "#FF0000";
+            }
         }
     };
 
