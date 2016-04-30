@@ -1,6 +1,7 @@
 <html>
 
 <head>
+    <script type="text/javascript" scr="https://www.airconsole.com/api/airconsole-1.3.-.js"></script>
 
     <body onload="init()">
         <div style="height: 1%"></div>
@@ -10,7 +11,7 @@
         <div id="parag">It's a 2 player game</div>
     </body>
 
-    <script type="text/javascript" scr="https://www.airconsole.com/api/airconsole-1.3.-.js"></script>
+
 
     <script type="text/javascript">
         var air_console;
@@ -30,11 +31,15 @@
                 }
             };
 
-            function move(amount) {
-                airconsole.message(AirConsole.SCREEN, {
-                    move: amount
-                });
-            }
+
+
+        }
+
+        function move(amount) {
+            document.getElementById("parag").innerHTML = amount;
+            airconsole.message(AirConsole.SCREEN, {
+                move: amount
+            });
 
         }
     </script>
