@@ -12,20 +12,13 @@ function setupConsole() {
     };
 
     airconsole.onDisconnect = function(device_id) {
-        /*
-        var player = airconsole.convertDeviceIdToPlayerNumber(device_id);
-        if (player != undefined) {
-            // Player that was in game left the game.
-            // Setting active players to length 0.
-            airconsole.setActivePlayers(0);
-        }
-        checkTwoPlayers();
-        */
+
     };
 
     airconsole.onMessage = function(device_id, data) {
         var player = airconsole.convertDeviceIdToPlayerNumber(device_id);
         if (player != undefined && data.move !== undefined) {
+            //appendTextToElement(document.getElementById("parag"), device_id + " says " + data.move);
             document.getElementById("parag").innerHTML = data.move;
             var box = document.getElementById("shape");
             if (data.move != 0) {
@@ -44,3 +37,9 @@ function setupConsole() {
 function init() {
     setupConsole();
 }
+
+var appendTextToElement = function(parent_ele, text) {
+    var ele = document.createElement('DIV');
+    ele.innerHTML = text;
+    parent_ele.appendChild(ele);
+};
