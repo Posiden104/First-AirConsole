@@ -8,6 +8,14 @@
         function init() {
             var air_console = new AirConsole();
 
+            air_console.onActivePlayersChange = function(player) {
+                var div = document.getElementById("parag");
+                if (player !== undefined) {
+                    div.innerHTML = (["Left", "Right"][player]);
+                } else {
+                    div.innerHTML = "It's a 2 player game!";
+                }
+            }
 
         }
     </script>
@@ -35,6 +43,10 @@
 
 <body onload="init()">
     <div id="parag">It's a 2 player game</div>
+</body>
+
+</html>
+r game</div>
 </body>
 
 </html>
