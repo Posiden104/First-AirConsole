@@ -7,18 +7,6 @@
     <script type="text/javascript">
         function init() {
             var air_console = new AirConsole();
-
-
-            // Listen for messages from other devices
-            air_console.onMessage = function(from, data) {
-                // We recieve a message -> Send message back to the devices
-                air_console.message(from, "Full of pixels!");
-
-                // Show message on device screen
-                var t = document.createTextNode(data);
-                document.getElementById("para").appendChild(t);
-
-            };
         }
     </script>
 
