@@ -1,8 +1,10 @@
+<html>
 <script type="text/javascript"
   scr="https://www.airconsole.com/api/airconsole-1.3.-.js"></script>
 
 <script type="text/javascript">
   var air_console = new AirConsole();
+
 
   // Listen for messages from other devices
   air_console.onMessage = function(from, data) {
@@ -15,3 +17,29 @@
     document.body.appendChild(info);
   };
   </script>
+
+  <style type="text/css">
+
+    html, body {
+      height: 100%;
+      margin: 0px;
+      font-family: sans-serif;
+      color: white;
+      text-align: center;
+      background-color: white;
+    }
+
+    #canvas {
+      position: absolute;
+      top: 0px;
+      left:0px;
+      width: 100%;
+      height: 100%;
+    }
+
+  </style>
+  </head>
+  <body>
+    <div id="parag"></div>
+  </body>
+</html>
