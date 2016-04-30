@@ -1,21 +1,25 @@
 <html>
-<script type="text/javascript"
-  scr="https://www.airconsole.com/api/airconsole-1.3.-.js"></script>
+<head>
 
-<script type="text/javascript">
-  var air_console = new AirConsole();
+  <script type="text/javascript"
+    scr="https://www.airconsole.com/api/airconsole-1.3.-.js"></script>
+
+  <script type="text/javascript">
+    function init(){
+      var air_console = new AirConsole();
 
 
-  // Listen for messages from other devices
-  air_console.onMessage = function(from, data) {
-    // We recieve a message -> Send message back to the devices
-    air_console.message(from, "Full of pixels!");
+      // Listen for messages from other devices
+      air_console.onMessage = function(from, data) {
+        // We recieve a message -> Send message back to the devices
+        air_console.message(from, "Full of pixels!");
 
-    // Show message on device screen
-    var info = document.createElement('DIV');
-    info.innerHTML = data;
-    document.body.appendChild(info);
-  };
+        // Show message on device screen
+        var t = document.createTextNode(data);
+        document.getElementById("para").appendChild(t);
+
+      };
+    }
   </script>
 
   <style type="text/css">
@@ -39,7 +43,7 @@
 
   </style>
   </head>
-  <body>
-    <div id="parag"></div>
+  <body onload="init()">
+    <div id="para">This is a test.</div>
   </body>
 </html>
