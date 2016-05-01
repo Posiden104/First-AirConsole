@@ -6,6 +6,8 @@ var grav;
 var vspd;
 var hangTime;
 
+var walls = [];
+
 function setupGame(){
   p_height = 100;
   scrn_player = document.getElementById("player");
@@ -60,14 +62,20 @@ function jumpingCalcs() {
     p_height = 650;
   }
   scrn_player.style.top = p_height + 'px';
-
   document.getElementById("parag").innerHTML = p_height;
-
 }
 
 function loop(){
   jumpingCalcs();
-  
+
+  var rnd = Math.floor((Math.random() * 100) + 1);
+
+  if(rnd < 20){
+    var wall = document.createElement("DIV");
+    walls.push(wall);
+
+  }
+
   // Basically says "draw the screen, and return to function 'loop' "
   requestAnimationFrame(loop);
 }
