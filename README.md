@@ -1,3 +1,13 @@
+A jumper clone
+======
+We are learning how to make games for airconsole.com
+This is just an endless runner where one player controls the jumping and the other player controls the dashes(?). 
+
+
+
+
+Everything below has been saved for our next project.
+
 AirConsole Co-op Tower Defense
 ======
 
