@@ -1,13 +1,11 @@
 var airconsole;
 
-/**
- * Sets up the communication to game pads.
- */
+var height;
+
 function setupConsole() {
     airconsole = new AirConsole();
 
     airconsole.onConnect = function(device_id) {
-        //checkTwoPlayers();
         airconsole.setActivePlayers(2);
     };
 
@@ -18,16 +16,25 @@ function setupConsole() {
     airconsole.onMessage = function(device_id, data) {
         var player = airconsole.convertDeviceIdToPlayerNumber(device_id);
         if (player != undefined && data.move !== undefined) {
-            //appendTextToElement(document.getElementById("parag"), device_id + " says " + data.move);
             document.getElementById("parag").innerHTML = data.move;
+
             var box = document.getElementById("shape");
+            var player = document.getElementById("player");
+            var topPos = player.offsetTop;
+
             if (data.move != 0) {
                 box.style.background = "#0000FF";
+                player.style.top = (topPos + 10) + 'px';
             } else {
                 box.style.background = "#FF0000";
             }
         }
     };
+
+    height = 100;
+}
+
+function loop(){
 
 }
 
@@ -36,10 +43,5 @@ function setupConsole() {
  */
 function init() {
     setupConsole();
+    loop();
 }
-
-var appendTextToElement = function(parent_ele, text) {
-    var ele = document.createElement('DIV');
-    ele.innerHTML = text;
-    parent_ele.appendChild(ele);
-};

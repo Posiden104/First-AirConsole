@@ -18,18 +18,12 @@ function init() {
             div.innerHTML = 'Its a 2 player game!';
         }
     };
-    /*
-     * Makes the device vibrate if the screen says so.
-     */
+
     airconsole.onMessage = function(from, data) {
 
     }
 }
 
-/**
- * Tells the screen to move the paddle of this player.
- * @param amount
- */
 function move(amount) {
     airconsole.message(AirConsole.SCREEN, {
         move: amount
