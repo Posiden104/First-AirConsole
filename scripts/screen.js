@@ -1,6 +1,18 @@
 var airconsole;
 
-var height;
+var p_height;
+var scrn_player;
+var grav;
+var vspd;
+var hangTime;
+
+function setupGame(){
+  p_height = 100;
+  scrn_player = document.getElementById("player");
+  grav = 10;
+  vspd = 0;
+  hangTime = 0;
+}
 
 function setupConsole() {
     airconsole = new AirConsole();
@@ -18,24 +30,41 @@ function setupConsole() {
         if (player != undefined && data.move !== undefined) {
             document.getElementById("parag").innerHTML = data.move;
 
-            var box = document.getElementById("shape");
-            var player = document.getElementById("player");
-            var topPos = player.offsetTop;
+            if(p_height >= 650){
+              vspd = -50;
+            }
 
+            var box = document.getElementById("shape");
             if (data.move != 0) {
                 box.style.background = "#0000FF";
-                player.style.top = (topPos + 10) + 'px';
             } else {
                 box.style.background = "#FF0000";
             }
         }
     };
-
-    height = 100;
 }
 
 function loop(){
+  vspd += 2;
+  vspd = Math.min(vspd, 0);
+  p_height += vspd;
 
+  if(p_height < 650){
+    hangTime += .1;
+    p_height += (1 * grav * hangTime);
+  } else {
+    hangTime = 0;
+  }
+
+  if(p_height > 650) {
+    p_height = 650;
+  }
+  scrn_player.style.top = p_height + 'px';
+
+  document.getElementById("parag").innerHTML = p_height;
+
+  // Basically says "draw the screen, and return to function 'loop' "
+  requestAnimationFrame(loop);
 }
 
 /**
@@ -43,5 +72,6 @@ function loop(){
  */
 function init() {
     setupConsole();
-    loop();
+    setupGame();
+    requestAnimationFrame(loop);
 }
