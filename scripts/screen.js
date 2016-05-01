@@ -85,6 +85,11 @@ function loop(){
     walls.push(wall);
   }
 
+  for(var i = 0; i < walls.length; i++){
+    var pos = walls[i].style.offsetLeft;
+    walls[i].style.left = (pos - 10) + 'px';
+  }
+
   // Basically says "draw the screen, and return to function 'loop' "
   requestAnimationFrame(loop);
 }
