@@ -81,7 +81,7 @@ function loop(){
   var rnd = Math.floor((Math.random() * 100) + 1);
 
   if(rnd < 20){
-    var wall = createWall('absolute', '550px', '100%', '100px', 'orange');
+    var wall = createWall('absolute', '550px', '100px', '100px', '150px', 'orange');
     walls.push(wall);
     appendTextToElement(document.getElementById("parag"), "wall created");
   }
