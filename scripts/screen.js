@@ -44,7 +44,7 @@ function setupConsole() {
     };
 }
 
-function loop(){
+function jumpingCalcs() {
   vspd += 2;
   vspd = Math.min(vspd, 0);
   p_height += vspd;
@@ -63,6 +63,11 @@ function loop(){
 
   document.getElementById("parag").innerHTML = p_height;
 
+}
+
+function loop(){
+  jumpingCalcs();
+  
   // Basically says "draw the screen, and return to function 'loop' "
   requestAnimationFrame(loop);
 }
