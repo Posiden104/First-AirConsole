@@ -46,6 +46,16 @@ function setupConsole() {
     };
 }
 
+function createWall(position, top, left, width, height, color){
+  var wall = document.createElement("DIV");
+  wall.style.position = position;
+  wall.style.top = top;
+  wall.style.left = left;
+  wall.style.width = width;
+  wall.style.color = color;
+  return wall;
+}
+
 function jumpingCalcs() {
   vspd += 2;
   vspd = Math.min(vspd, 0);
@@ -71,9 +81,8 @@ function loop(){
   var rnd = Math.floor((Math.random() * 100) + 1);
 
   if(rnd < 20){
-    var wall = document.createElement("DIV");
+    var wall = createWall('absolute', '550px', '100%', '100px', 'orange');
     walls.push(wall);
-
   }
 
   // Basically says "draw the screen, and return to function 'loop' "
