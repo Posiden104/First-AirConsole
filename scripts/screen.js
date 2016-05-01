@@ -83,6 +83,7 @@ function loop(){
   if(rnd < 20){
     var wall = createWall('absolute', '550px', '100%', '100px', 'orange');
     walls.push(wall);
+    appendTextToElement(document.getElementById("parag"), "wall created");
   }
 
   for(var i = 0; i < walls.length; i++){
